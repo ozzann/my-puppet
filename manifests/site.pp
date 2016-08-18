@@ -1,7 +1,7 @@
 node default {
 }
 
-node 'production.puppet.node' {
+node 'vagrant.ads.zuehlke.com' {
     notify { "This is node production.puppet.node": }
     include docker
     include production
