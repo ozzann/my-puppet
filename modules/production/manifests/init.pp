@@ -3,7 +3,8 @@ class production {
         mode => 0755,
     }
 
-    exec {'cd /home/vagrant/app; ./deploy.sh':
+    exec {'deploy_app':
+        command => 'cd /home/vagrant/app; ./deploy.sh',
         cwd  => '/home/vagrant/app',
         path => '/home/vagrant/app',
     }
