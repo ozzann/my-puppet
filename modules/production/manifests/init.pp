@@ -10,7 +10,7 @@ class production {
         require => Vcsrepo["/home/vagrant/app"],
     }
 
-    $docker path="/usr/bin"
+    $docker_path="/usr/bin"
     exec {'stop_all_containers':
         command => 'docker stop $(docker ps -q -a)',
         path    => "${docker_path}",
