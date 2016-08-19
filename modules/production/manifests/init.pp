@@ -7,12 +7,13 @@ class production {
 
     file {'/home/vagrant/app/deploy.sh':
         mode => 0755,
+        require => Vcsrepo["/homevagrant/app"],
     }
 
-    exec {'docker run -d -p 9000:9000 app':
-        onlyif => 'docker build -t app .',
+    exec {'./deploy.sh':
         cwd    => '/home/vagrant/app',
         path   => '/var/run/docker:/var/lib/docker:/usr/bin',
         timeout => 700,
+        require => File["/home/vagrant/app/deploy.sh"],
     }
 }
