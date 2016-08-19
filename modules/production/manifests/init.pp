@@ -8,6 +8,6 @@ class production {
     ssh_authorized_key { 'prod_ssh':
         user => 'prod',
         type => 'rsa',
-        key  => 'AAAAB3NzaC1yc2EAAAADAQABAAABAQDIaYRnJsO2mDJ2mrhiK9lxYVssEqqf5DoiyCTDYoCrEwWwkkybMQMeeDTxvc3ufUGf3XwyssfCQex6hjjU7AI5GFv/YJJNJsh4ZtoVyqkTM+V0HzUEWoHJXQ3ByUz3o48uiuxrDmSYY2+KkHEsvQ9und30wmmfq5qxO08wn1yEyd+aZKJMttHnNVG62mu9Lvxja0NG0zG4S4LFFr4oGQrPqCLADBuuN37Ismc61XDLMAoN3Yii7RNcbNRAhcNBwos+n1ix0QVqMk7jIfp/WLrKDZWLly9i7kARZ/E4HujVXIBpIpGMfH25S+RbXA5EBl5fvrbA9iQad9/1Os8IgUPz',
+        key  => 'AAAAB3NzaC1yc2EAAAADAQABAAABAQDXseoCpfLM/TnHgRqJgtTQftsfR07yybHh0KGJ3BgiyTPOmyEiDt8wHaufHti8dK7HRvD0B7Prpt/L+8G9yIl2uRzis9AbPb8tDh0k1sZu73hxQjmu0ihnL2LtX6XXzfOq8V0ffyrpmPhsud4QuHQzgJSUecFZzGNbYmEKscPQ+RzkAgr+PmtQuQQIPUHueOZO/4AChy1JwNDy8heaOitAAKCwTc99R+VO3d9FsV3+lvumIMNBHAdNtjl4H+BEZ9TGbHgabU3/hElqSPa6cr1n9gM9bUJ95jaVCPutgCimD6ZCTwf9xlLU4O5XirnsGOsJcm27KCVtDSnO9HvTs4lX',
    }
 }
