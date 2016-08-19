@@ -7,5 +7,6 @@ class production {
         onlyif => 'docker build -t app .',
         cwd    => '/home/vagrant/app',
         path   => '/var/run/docker:/var/lib/docker:/usr/bin',
+        timeout => 700,
     }
 }
