@@ -12,7 +12,7 @@ class production {
 
     exec {'./deploy.sh':
         cwd    => '/home/vagrant/app',
-        path   => '/var/run/docker:/var/lib/docker:/usr/bin',
+        path   => '/home/vagrant/app',
         timeout => 700,
         require => File["/home/vagrant/app/deploy.sh"],
     }
