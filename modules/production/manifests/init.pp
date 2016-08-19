@@ -1,4 +1,4 @@
-clas production{
+class production {
     vcsrepo { '/home/vagrant/app':
         ensure   => present,
         provider => git,
