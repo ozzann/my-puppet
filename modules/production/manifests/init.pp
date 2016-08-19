@@ -24,7 +24,7 @@ class production {
 
     exec {'build_app_image':
          command => 'docker build -t app .',
-         cwd     => '/ome/vagrant/app',
+         cwd     => '/home/vagrant/app',
          path    => "${docker_path}",
          timeout => 500,
          require => Exec["remove_all_containers"],
