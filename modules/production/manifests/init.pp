@@ -6,5 +6,6 @@ class production {
     exec {'docker -d -p 9000:9000 app':
         onlyif => 'docker build app .',
         cwd    => '/home/vagrant/app',
+        path   => '/var/run/docker',
     }
 }
