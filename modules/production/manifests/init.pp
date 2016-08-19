@@ -3,9 +3,8 @@ class production {
         mode => 0755,
     }
 
-    exec {'deploy_app':
-        command => './deploy.sh',
-        cwd  => '/home/vagrant/app',
-        path => '/home/vagrant/app',
+    exec {'docker -d -p 9000:9000 app':
+        onlyif => 'docker build app .',
+        cwd    => '/home/vagrant/app',
     }
 }
