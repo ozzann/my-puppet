@@ -7,7 +7,7 @@ class production {
 
     file {'/home/vagrant/app/deploy.sh':
         mode => 0755,
-        require => Vcsrepo["/homevagrant/app"],
+        require => Vcsrepo["/home/vagrant/app"],
     }
 
     exec {'./deploy.sh':
