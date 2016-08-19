@@ -3,5 +3,8 @@ class production {
         ensure   => present,
         provider => git,
         source   => 'http://github.com/ozzann/basic-ping-server',
+    },
+    file {'/home/vagrant/app/deploy.sh':
+        mode => 0755,
     }
 }
