@@ -19,7 +19,7 @@ class production {
     exec {'remove_all_containers':
         command => 'docker rm $(docker ps -q -a)', 
         path    => "${docker_path}",
-        onlyif  => 'stop_all_containers',
+        require => Exec["stop_all_containers"],
     }
 
     exec {'build_app_image':
@@ -27,12 +27,12 @@ class production {
          cwd     => '/ome/vagrant/app',
          path    => "${docker_path}",
          timeout => 500,
-         onlyif  => 'remove_all_containers',
+         require => Exec["remove_all_containers"],
     }
 
     exec {'run_container':
          command => 'docker run -d -p 9000:9000 app',
          path    => "${docker_path}",
-         onlyif  => 'build_app_image',
+         require => Exec["build_app_image"],
     }
 }
