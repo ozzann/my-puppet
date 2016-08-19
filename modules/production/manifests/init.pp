@@ -10,10 +10,29 @@ class production {
         require => Vcsrepo["/home/vagrant/app"],
     }
 
-    exec {'./deploy.sh':
-        cwd    => '/home/vagrant/app',
-        path   => '/home/vagrant/app',
-        timeout => 700,
-        require => File["/home/vagrant/app/deploy.sh"],
+    $docker path='/usr/bin'
+    exec {'stop_all_containers':
+        command => 'docker stop $(docker ps -q -a)',
+        path => "$docker_path",
+    }
+    
+    exec {'remove_all_containers':
+        command => 'docker rm $(docker ps -q -a)', 
+        path => "$docker_path",
+        onlyif => 'stop_all_containers',
+    }
+
+    exec {'build_app_image':
+         command => 'docker build -t app .',
+         cwd     => '/ome/vagrant/app',
+         path    => "$docker_path",
+         timeout => 500,
+         onlyif  => 'remove_all_containers',
+    }
+
+    exec {'run_container':
+         command => 'docker run -d -p 9000:9000 app',
+         path    => "$docker_path",
+         onlyif  => 'build_app_image',
     }
 }
