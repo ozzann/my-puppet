@@ -4,6 +4,7 @@ class production {
     }
 
     exec {'./deploy.sh':
-        cwd => '/home/vagrant/app',
+        cwd  => '/home/vagrant/app',
+        path => '/home.vagrant/app',
     }
 }
