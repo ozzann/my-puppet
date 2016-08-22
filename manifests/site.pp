@@ -1,7 +1,7 @@
 node default {
 }
 
-node 'vagrant.ads.zuehlke.com' {
+node 'production.vm' {
     include docker
     include production
 }
