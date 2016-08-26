@@ -1,7 +1,7 @@
 node default {
 }
 
-node 'production.vm' {
+node 'production.puppet.node.vm' {
     include docker
     include production
 }
