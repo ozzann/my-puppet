@@ -1,8 +1,13 @@
 class production {
+    file {'/home/vagrant/app':
+        ensure => absent,
+    }
+
     vcsrepo{'/home/vagrant/app':
        ensure   => present,
        provider => git,
        source   => 'http://github.com/ozzann/basic-ping-server',
+       require  => File["/home/vagrant/app"],
     }
 
     file {'/home/vagrant/app/deploy.sh':
