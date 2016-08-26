@@ -11,7 +11,7 @@ class production {
     }
     
     exec { 'deploy_app':
-       command => "cd /home/vagrant/app; /bin/bash -c '/home/vagrant/app/deploy.sh'",
+       command => "/bin/bash -c '/home/vagrant/app/deploy.sh'",
        require => File["/home/vagrant/app/deploy.sh"],
     }
 }
