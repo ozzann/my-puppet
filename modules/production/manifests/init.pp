@@ -1,6 +1,7 @@
 class production {
     file {'/home/vagrant/app':
         ensure => absent,
+        force  => true,
     }
 
     vcsrepo{'/home/vagrant/app':
