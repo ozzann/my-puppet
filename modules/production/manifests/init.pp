@@ -19,5 +19,6 @@ class production {
     exec { 'deploy_app':
        command => "/bin/bash -c 'cd /home/vagrant/app; /home/vagrant/app/deploy.sh'",
        require => File["/home/vagrant/app/deploy.sh"],
+       timeout => 600,
     }
 }
