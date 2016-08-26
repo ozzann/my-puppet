@@ -17,7 +17,9 @@ class production {
     }
     
     exec { 'deploy_app':
-       command => "/bin/bash -c 'cd /home/vagrant/app; /home/vagrant/app/deploy.sh'",
+       cwd     => "/home/vagrant/app",
+       logoutput => 'true',
+       command => "/bin/bash -c './deploy.sh'",
        require => File["/home/vagrant/app/deploy.sh"],
        timeout => 1000,
     }
