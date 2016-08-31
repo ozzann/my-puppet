@@ -1,19 +1,19 @@
 class production {
-    file {'/home/vagrant/app':
-        ensure => absent,
-        force  => true,
+    exec {'rm -rf /home/vagrant/app/*':
+        path => '/usr/bin:/usr/sbin:/bin',
     }
 
     file { '/home/vagrant/app':
         ensure => 'directory',
-        source => 'puppet:///home/vagrant/app',
+        source => 'puppet:///extra_files/app',
         recurse => 'remote',
         path => '/home/vagrant/app',
+        owner => 'vagrant',
     }
 
     file {'/home/vagrant/app/deploy.sh':
-        mode    => 0755,
-        require => File["/home/vagrant/app"],
+        mode => 0755,
+        ensure => 'present',
     }
     
     exec { 'deploy_app':
