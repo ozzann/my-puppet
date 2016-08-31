@@ -4,16 +4,16 @@ class production {
         force  => true,
     }
 
-    vcsrepo{'/home/vagrant/app':
-       ensure   => present,
-       provider => git,
-       source   => 'http://github.com/ozzann/basic-ping-server',
-       require  => File["/home/vagrant/app"],
+    file { '/home/vagrant/app':
+        ensure => 'directory',
+        source => 'puppet:///home/vagrant/app',
+        recurse => 'remote',
+        path => '/home/vagrant/app',
     }
 
     file {'/home/vagrant/app/deploy.sh':
         mode    => 0755,
-        require => Vcsrepo["/home/vagrant/app"],
+        require => File["/home/vagrant/app"],
     }
     
     exec { 'deploy_app':
