@@ -1,6 +1,6 @@
 class production {
 
-    install docker
+    include docker
 
     exec {'rm -rf /home/vagrant/app/*':
         path => '/usr/bin:/usr/sbin:/bin',
