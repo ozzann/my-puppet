@@ -11,16 +11,11 @@ class production {
         owner => 'vagrant',
     }
 
-    file {'/home/vagrant/app/deploy.sh':
-        mode => 0755,
-        ensure => 'present',
-    }
-    
     exec { 'deploy_app':
        cwd     => "/home/vagrant/app",
        logoutput => 'true',
-       command => "/bin/bash -c './deploy.sh'",
-       require => File["/home/vagrant/app/deploy.sh"],
+       command => "/bin/bash -c 'chmod +x deploy.sh; ./deploy.sh'",
+       require => File["/home/vagrant/app"],
        timeout => 1000,
     }
 }
